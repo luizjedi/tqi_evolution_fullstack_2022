@@ -22,14 +22,14 @@ public class CompraLivroController implements IRestController<CompraEntity> {
     private Logger logger = Logger.getLogger(CompraLivroController.class.getName());;
 
     // Get
-    @GetMapping
+    @GetMapping("/buscarTodos")
     @Override
     public ResponseEntity<Iterable<CompraEntity>> buscarTodos() {
         logger.info("========== Buscando Todas Compras ==========");
         return ResponseEntity.ok(service.buscarTodos());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscarPorId/{id}")
     @Override
     public ResponseEntity<CompraEntity> buscarPorId(Long id) throws Exception {
         logger.info("========== Buscando Compras Por Id ==========");
@@ -37,7 +37,7 @@ public class CompraLivroController implements IRestController<CompraEntity> {
     }
 
     // Post
-    @PostMapping
+    @PostMapping("/inserir")
     @Override
     public ResponseEntity<CompraEntity> inserir(@RequestBody CompraEntity compra) throws IOException {
         logger.info("========== Inserindo Nova Compra ==========");
@@ -46,7 +46,7 @@ public class CompraLivroController implements IRestController<CompraEntity> {
     }
 
     // Put
-    @PutMapping("/{id}")
+    @PutMapping("/atualizar/{id}")
     @Override
     public ResponseEntity<CompraEntity> atualizar(@PathVariable Long id, @RequestBody CompraEntity compra) throws Exception {
         logger.info("========== Atualizando Compra Por Id ==========");
@@ -56,7 +56,7 @@ public class CompraLivroController implements IRestController<CompraEntity> {
     }
 
     // Delete
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar/{id}")
     @Override
     public ResponseEntity<CompraEntity> deletar(@PathVariable Long id) {
         logger.info("========== Deletando Compra Por Id ==========");

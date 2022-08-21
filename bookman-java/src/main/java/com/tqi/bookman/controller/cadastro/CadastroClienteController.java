@@ -29,14 +29,14 @@ public class CadastroClienteController implements IRestController<ClienteEntity>
     private Logger logger = Logger.getLogger(CadastroClienteController.class.getName());;
 
     // Get
-    @GetMapping
+    @GetMapping("/buscarTodos")
     @Override
     public ResponseEntity<Iterable<ClienteEntity>> buscarTodos() {
         logger.info("========== Buscando Todos clientes ==========");
         return ResponseEntity.ok(service.buscarTodos());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscarPorId/{id}")
     @Override
     public ResponseEntity<ClienteEntity> buscarPorId(Long id) throws Exception {
         logger.info("========== Buscando Cliente Por Id ==========");
@@ -44,7 +44,7 @@ public class CadastroClienteController implements IRestController<ClienteEntity>
     }
 
     // Post
-    @PostMapping(value = "/", produces = "application/json")
+    @PostMapping(value = "/inserir", produces = "application/json")
     @Override
     public ResponseEntity<ClienteEntity> inserir(@RequestBody ClienteEntity cliente) throws IOException {
         logger.info("========== Inserindo Novo Cliente ==========");
@@ -55,7 +55,7 @@ public class CadastroClienteController implements IRestController<ClienteEntity>
     }
 
     // Put
-    @PutMapping("/{id}")
+    @PutMapping("/atualizar/{id}")
     @Override
     public ResponseEntity<ClienteEntity> atualizar(@PathVariable Long id, @RequestBody ClienteEntity cliente) throws Exception {
         logger.info("========== Atualizando Cliente Por Id ==========");
@@ -67,7 +67,7 @@ public class CadastroClienteController implements IRestController<ClienteEntity>
     }
 
     // Delete
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar/{id}")
     @Override
     public ResponseEntity<ClienteEntity> deletar(@PathVariable Long id) {
         logger.info("========== Deletando Cliente Por Id ==========");

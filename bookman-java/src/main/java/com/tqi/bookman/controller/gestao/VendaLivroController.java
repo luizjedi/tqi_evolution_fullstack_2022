@@ -28,14 +28,14 @@ public class VendaLivroController implements IRestController<VendaEntity> {
     ;
 
     // Get
-    @GetMapping
+    @GetMapping("/buscarTodos")
     @Override
     public ResponseEntity<Iterable<VendaEntity>> buscarTodos() {
         logger.info("========== Buscando Todas Vendas ==========");
         return ResponseEntity.ok(service.buscarTodos());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscarPorId/{id}")
     @Override
     public ResponseEntity<VendaEntity> buscarPorId(Long id) throws Exception {
         logger.info("========== Buscando Vendas Por Id ==========");
@@ -43,7 +43,7 @@ public class VendaLivroController implements IRestController<VendaEntity> {
     }
 
     // Post
-    @PostMapping
+    @PostMapping("/inserir")
     @Override
     public ResponseEntity<VendaEntity> inserir(@RequestBody VendaEntity venda) throws IOException {
         logger.info("========== Inserindo Nova Venda ==========");
@@ -53,7 +53,7 @@ public class VendaLivroController implements IRestController<VendaEntity> {
     }
 
     // Put
-    @PutMapping("/{id}")
+    @PutMapping("/atualizar/{id}")
     @Override
     public ResponseEntity<VendaEntity> atualizar(@PathVariable Long id, @RequestBody VendaEntity venda) throws Exception {
         logger.info("========== Atualizando Compra Por Id ==========");
@@ -63,7 +63,7 @@ public class VendaLivroController implements IRestController<VendaEntity> {
     }
 
     // Delete
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar/{id}")
     @Override
     public ResponseEntity<VendaEntity> deletar(@PathVariable Long id) {
         logger.info("========== Deletando Venda Por Id ==========");
