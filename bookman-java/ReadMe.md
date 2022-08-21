@@ -3,7 +3,7 @@
 ### By LuizJedi
 
 # Observação: 
-Ao inserir a um cliente não é necessário passar todo endereço, pois foi feita integração com o viaCep,
+Ao inserir um cliente não é necessário passar todo endereço, pois foi feita integração com o viaCep,
 passe somente o cep e o restante do endereço será encontrado.
 
 ### Setup Enviroment
